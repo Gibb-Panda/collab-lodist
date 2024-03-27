@@ -5,6 +5,9 @@ This platform has been developed to enable comprehensive and efficient managemen
 ### Django
 "Collab Lodist" was developed using the Django technology. Django is a popular web framework that is widely used for building high-quality web applications quickly and efficiently. It provides a powerful and secure infrastructure for developing complex applications, and it is known for its scalability and flexibility. With Django, developers can easily create web applications with clean and maintainable code, making it a popular choice for building web applications. The use of Django in the development of "Collab Lodist" ensures that the app is reliable, secure, and easy to maintain.
 
+### Angular
+CONTENT
+
 ## Black
 Black is an automated code formatter for Python that aims to improve code quality and consistency in Python projects. With its straightforward and immutable formatting, Black ensures that code style is consistent within a project, increasing code readability and maintainability. Using Black in a project like OfficeSync helps keep the Python code clean and consistent, which contributes to development efficiency in the long term.
 
