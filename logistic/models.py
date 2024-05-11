@@ -12,6 +12,12 @@ class StorageCondition(models.Model):
     def __str__(self):
         return self.title
 
+class GoodHazardClass(models.Model):
+    class_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.class_name
+
 
 class Commodity(models.Model):
     article_number = models.CharField(max_length=50)

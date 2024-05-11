@@ -1,12 +1,24 @@
 from django.urls import path
 
-from logistic.views import CommoditiesViewSet, StorageConditionViewSet
+from logistic.views import CommoditiesViewSet, StorageConditionViewSet, GoodHazardClassViewSet
 
 urlpatterns = [
     path(
+        "good_hazard_classes",
+        GoodHazardClassViewSet.as_view({"get": "list", "post": "create"}),
+        name="good_hazard_classes_api",
+    ),
+    path(
+        "good_hazard_classes/<int:pk>",
+        GoodHazardClassViewSet.as_view(
+            {"get": "retrieve", "put": "update", "delete": "destroy"}
+        ),
+        name="good_hazard_classes_api_detail",
+    ),
+    path(
         "storage_conditions",
         StorageConditionViewSet.as_view({"get": "list", "post": "create"}),
-        name="storage_conditoon_api",
+        name="storage_condition_api",
     ),
     path(
         "storage_conditions/<int:pk>",
