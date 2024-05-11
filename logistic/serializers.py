@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Commodity, StorageCondition, GoodHazardClass
+from .models import Commodity, StorageCondition, GoodHazardClass, WareHouse
 
 
 class StorageConditionSerializer(serializers.ModelSerializer):
@@ -27,3 +27,11 @@ class CommoditySerializer(serializers.ModelSerializer):
 
     def __str__(self):
         return self.article_number
+
+class WareHouseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WareHouse
+        fields = "__all__"
+
+    def __str__(self):
+        return self.name_of_location

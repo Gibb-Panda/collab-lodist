@@ -30,7 +30,18 @@ class Commodity(models.Model):
     customs_tariff_number = models.CharField(max_length=20)
     packagin_information = models.TextField(null=True, blank=True)
     insurance_value = models.IntegerField(null=True)
-    storage_condition = models.ForeignKey(StorageCondition, models.SET_NULL, null=True)
+    storage_conditions = models.ManyToManyField(StorageCondition, blank=True, null=True)
 
     def __str__(self):
         return self.article_number
+
+class WareHouse(models.Model):
+    name_of_location = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    storage_conditions = models.ManyToManyField(StorageCondition, blank=True, null=True)
+    contact_information = models.CharField(max_length=100)
+    storage_capacity = models.IntegerField()
+    insurance_information = models.CharField(max_length=14)
+
+    def __str__(self):
+        return self.name_of_location

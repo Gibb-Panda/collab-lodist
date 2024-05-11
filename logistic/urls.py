@@ -1,6 +1,6 @@
 from django.urls import path
 
-from logistic.views import CommoditiesViewSet, StorageConditionViewSet, GoodHazardClassViewSet
+from logistic.views import CommodityViewSet, StorageConditionViewSet, GoodHazardClassViewSet, WareHouseViewSet
 
 urlpatterns = [
     path(
@@ -29,14 +29,26 @@ urlpatterns = [
     ),
     path(
         "commodities",
-        CommoditiesViewSet.as_view({"get": "list", "post": "create"}),
+        CommodityViewSet.as_view({"get": "list", "post": "create"}),
         name="commodity_api",
     ),
     path(
         "commodities/<int:pk>",
-        CommoditiesViewSet.as_view(
+        CommodityViewSet.as_view(
             {"get": "retrieve", "put": "update", "delete": "destroy"}
         ),
         name="commodity_api_detail",
+    ),
+    path(
+        "ware_houses",
+        WareHouseViewSet.as_view({"get": "list", "post": "create"}),
+        name="ware_houses_api",
+    ),
+    path(
+        "ware_houses/<int:pk>",
+        WareHouseViewSet.as_view(
+            {"get": "retrieve", "put": "update", "delete": "destroy"}
+        ),
+        name="ware_houses_api_detail",
     ),
 ]
