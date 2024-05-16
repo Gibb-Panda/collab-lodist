@@ -1,6 +1,10 @@
 from django.urls import path
-
-from logistic.views import CommoditiesViewSet, StorageConditionViewSet, GoodHazardClassViewSet
+from logistic.views import (
+    CommodityViewSet,
+    GoodHazardClassViewSet,
+    StorageConditionViewSet,
+    WarehouseViewSet,
+)
 
 urlpatterns = [
     path(
@@ -29,14 +33,38 @@ urlpatterns = [
     ),
     path(
         "commodities",
-        CommoditiesViewSet.as_view({"get": "list", "post": "create"}),
+        CommodityViewSet.as_view({"get": "list", "post": "create"}),
         name="commodity_api",
     ),
     path(
         "commodities/<int:pk>",
-        CommoditiesViewSet.as_view(
+        CommodityViewSet.as_view(
             {"get": "retrieve", "put": "update", "delete": "destroy"}
         ),
         name="commodity_api_detail",
+    ),
+    path(
+        "warehouses",
+        WarehouseViewSet.as_view({"get": "list", "post": "create"}),
+        name="warehouses_api",
+    ),
+    path(
+        "warehouses/<int:pk>",
+        WarehouseViewSet.as_view(
+            {"get": "retrieve", "put": "update", "delete": "destroy"}
+        ),
+        name="warehouses_api_detail",
+    ),
+    path(
+        "good_hazard_class",
+        GoodHazardClassViewSet.as_view({"get": "list", "post": "create"}),
+        name="users_api",
+    ),
+    path(
+        "good_hazard_class/<int:pk>",
+        GoodHazardClassViewSet.as_view(
+            {"get": "retrieve", "put": "update", "delete": "destroy"}
+        ),
+        name="good_hazard_class_api_detail",
     ),
 ]
