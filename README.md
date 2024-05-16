@@ -26,6 +26,8 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 
 ## Installation
 ### MacOS
+![macOS](https://img.shields.io/badge/macOS-000?logo=macos&logoColor=fff&style=for-the-badge)
+
 #### Clone Project
 ##### Using SSH
 1. Open your command prompt or terminal.
