@@ -70,14 +70,20 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 6. Type the command `git clone https://github.com/Gibb-Panda/collab-lodist-backend.git` and press Enter.
 7. Wait for the project to be cloned.
 
+#### Setup
 
-#### Pyenv
-1. Install Pyenv via Homebrew by running the following command in your terminal: `brew install pyenv`
-2. Once Pyenv is installed, you can install the desired version of Python. For Django 4.1.7, we recommend using Python 3.11.2 To install this version, run the following command: `pyenv install 3.11.2`.
-((Warning: It's global, not in a virtual environment. Not recommend).)
-3. To install virtualenv, you can use the following command if you are using macOS and Homebrew: `brew install pyenv-virtualenv`.  This will install pyenv-virtualenv, which is a plugin for pyenv that provides support for creating and managing virtual environment.
+##### Pyenv
+
+1. Install Pyenv via Homebrew by running the following command in your terminal: `brew install pyenv`.
+2. Once Pyenv is installed, you can install the desired version of Python. For Django 4.1.7, we recommend using Python 3.11.2. To install this version, run the following command: `pyenv install 3.11.2`. (Warning: This installs Python globally, not in a virtual environment, which is not recommended).
+3. To install virtualenv, you can use the following command if you are using macOS and Homebrew: `brew install pyenv-virtualenv`. This will install pyenv-virtualenv, which is a plugin for pyenv that provides support for creating and managing virtual environments.
 4. Once Python is installed, you can create a new virtual environment based on Python 3.11.2. To do this, run the following command in the project: `pyenv virtualenv 3.11.2 venv`.
-5. Now navigate to your Django project directory and activate the newly created virtual environment. To do this, run the following commands: `cd (Your Path)/django/project` and `source (your path)/django/project/venv/bin/activte`. This will activate your existing virtual environment.
+5. Now navigate to your Django project directory and activate the newly created virtual environment. To do this, run the following commands: `cd (your-path)/collab-lodist-backend` and `source (your-path)/collab-lodist-backend/venv/bin/activate`. This will activate your existing virtual environment.
+6. With the virtual environment activated, you can now install the project dependencies. Run the following command to install the required packages from the `requirements.txt` file: `pip install -r requirements.txt`.
+7. Ensure all dependencies are installed correctly and the project is set up properly by running the following commands:
+   - `python manage.py migrate` to apply database migrations.
+   - `python manage.py runserver` to start the development server.
+
 
 ## API URLs
 - [./signup](http://localhost:8000/signup)

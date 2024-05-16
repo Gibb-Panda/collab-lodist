@@ -11,6 +11,7 @@ class StorageConditionSerializer(serializers.ModelSerializer):
     def __str__(self):
         return self.title
 
+
 class GoodHazardClassSerializer(serializers.ModelSerializer):
     class Meta:
         model = GoodHazardClass
@@ -39,6 +40,9 @@ class CommoditySerializer(serializers.ModelSerializer):
 
 
 class WarehouseSerializer(serializers.ModelSerializer):
+    commodities = CommoditySerializer(many=True, read_only=True)
+    storage_conditions = StorageConditionSerializer(many=True, read_only=True)
+
     class Meta:
         model = Warehouse
         fields = "__all__"
