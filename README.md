@@ -53,3 +53,22 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 3. To install virtualenv, you can use the following command if you are using macOS and Homebrew: `brew install pyenv-virtualenv`.  This will install pyenv-virtualenv, which is a plugin for pyenv that provides support for creating and managing virtual environment.
 4. Once Python is installed, you can create a new virtual environment based on Python 3.11.2. To do this, run the following command in the project: `pyenv virtualenv 3.11.2 venv`.
 5. Now navigate to your Django project directory and activate the newly created virtual environment. To do this, run the following commands: `cd (Your Path)/django/project` and `source (your path)/django/project/venv/bin/activte`. This will activate your existing virtual environment.
+
+## API URLs
+- ./signup
+- ./login
+- ./logout
+- ./system/users
+- ./system/users/<pk>
+- ./system/roles
+- ./system/roles/<pk>
+- ./system/permissions
+- ./system/permissions/<pk>
+- ./logistics/commodities
+- ./logistics/commodities/<pk>
+- ./logistics/storage_conditions
+- ./logistics/storage_conditions/<pk>
+- ./logistics/warehouses
+- ./logistics/warehouses/<pk>
+- ./logistics/good_hazard_class
+- ./logistics/good_hazard_class/<pk>
