@@ -33,7 +33,7 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 4. Click on the "Clone or download" button and select "Use SSH" in the top right corner of the pop-up.
 5. Copy the SSH URL provided.
 6. In the command prompt or terminal, navigate to the directory where you want to clone the project.
-7. Type the command `git clone git@github.com:Gibb-Panda/collab-lodist.git` and press Enter.
+7. Type the command `git clone git@github.com:Gibb-Panda/collab-lodist-backend.git` and press Enter.
 8. Wait for the project to be cloned.
 
 #### Using HTTPS
@@ -42,7 +42,7 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 3. Click on the "Clone or download" button and select "Use HTTPS" in the top right corner of the pop-up.
 4. Copy the HTTPS URL provided.
 5. In the command prompt or terminal, navigate to the directory where you want to clone the project.
-6. Type the command `git clone https://github.com/Gibb-Panda/collab-lodist.git` and press Enter.
+6. Type the command `git clone https://github.com/Gibb-Panda/collab-lodist-backend.git` and press Enter.
 7. Wait for the project to be cloned.
 
 
