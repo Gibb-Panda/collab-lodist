@@ -55,20 +55,20 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 5. Now navigate to your Django project directory and activate the newly created virtual environment. To do this, run the following commands: `cd (Your Path)/django/project` and `source (your path)/django/project/venv/bin/activte`. This will activate your existing virtual environment.
 
 ## API URLs
-- ./signup
-- ./login
-- ./logout
-- ./system/users
-- ./system/users/<pk>
-- ./system/roles
-- ./system/roles/<pk>
-- ./system/permissions
-- ./system/permissions/<pk>
-- ./logistics/commodities
-- ./logistics/commodities/<pk>
-- ./logistics/storage_conditions
-- ./logistics/storage_conditions/<pk>
-- ./logistics/warehouses
-- ./logistics/warehouses/<pk>
-- ./logistics/good_hazard_class
-- ./logistics/good_hazard_class/<pk>
+- [./signup](http://localhost:8000/signup)
+- [./login](http://localhost:8000/login)
+- [./logout](http://localhost:8000/logout)
+- [./system/users](http://localhost:8000/system/users)
+- [./system/users/1](http://localhost:8000/system/users/1)
+- [./system/roles](http://localhost:8000/system/roles)
+- [./system/roles/1](http://localhost:8000/system/roles/1)
+- [./system/permissions](http://localhost:8000/system/permissions)
+- [./system/permissions/1](http://localhost:8000/system/permissions/1)
+- [./logistics/commodities](http://localhost:8000/logistics/commodities)
+- [./logistics/commodities/1](http://localhost:8000/logistics/commodities/1)
+- [./logistics/storage_conditions](http://localhost:8000/logistics/storage_conditions)
+- [./logistics/storage_conditions/1](http://localhost:8000/logistics/storage_conditions/1)
+- [./logistics/warehouses](http://localhost:8000/logistics/warehouses)
+- [./logistics/warehouses/1](http://localhost:8000/logistics/warehouses/1)
+- [./logistics/good_hazard_class](http://localhost:8000/logistics/good_hazard_class)
+- [./logistics/good_hazard_class/1](http://localhost:8000/logistics/good_hazard_class/1
