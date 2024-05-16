@@ -1,6 +1,25 @@
 # Collab Lodist (Backend)
 This platform has been developed to enable comprehensive and efficient management of logisitic, disposition and more. Collab Lodist stands out with its clear structure and intuitive user interface, allowing users to effectively organize and manage their work processes.
 
+## Table of Contents
+1. [Related Repositories](#related-repositories)
+2. [Technologies](#technologies)
+    - [Django](#django)
+    - [Black](#black)
+    - [isort](#isort)
+    - [flake8](#flake8)
+    - [Pillow](#pillow)
+    - [djlint](#djlint)
+3. [Installation](#installation)
+    - [MacOS](#macos)
+        - [Clone Project](#clone-project)
+            - [Using SSH](#using-ssh)
+            - [Using HTTPS](#using-https)
+        - [Pyenv](#pyenv)
+4. [API URLs](#api-urls)
+5. [Roles and Their Permissions](#roles-and-their-permissions)
+6. [Existing Permissions](#existing-permissions)
+
 ## Related Repositories
 - Frontend [Github](https://github.com/Gibb-Panda/collab-lodist-frontend)
 
