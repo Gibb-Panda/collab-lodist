@@ -11,6 +11,14 @@ class StorageConditionSerializer(serializers.ModelSerializer):
     def __str__(self):
         return self.title
 
+class GoodHazardClassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GoodHazardClass
+        fields = "__all__"
+
+    def __str__(self):
+        return self.class_name
+
 
 class GoodHazardClassSerializer(serializers.ModelSerializer):
     class Meta:

@@ -52,6 +52,8 @@ atlassian-ide-plugin.xml
 .DS_Store
 .Ds_Store
 .ds_store
+*.pyc
+.pyc
 
 # Distribution / packaging 
 .Python build/ 

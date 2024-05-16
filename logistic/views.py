@@ -52,7 +52,6 @@ class StorageConditionViewSet(viewsets.ModelViewSet):
 
         return [permission() for permission in permission_classes]
 
-
 class CommodityViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = Commodity.objects.all()

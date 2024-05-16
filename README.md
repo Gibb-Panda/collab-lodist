@@ -53,3 +53,85 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 3. To install virtualenv, you can use the following command if you are using macOS and Homebrew: `brew install pyenv-virtualenv`.  This will install pyenv-virtualenv, which is a plugin for pyenv that provides support for creating and managing virtual environment.
 4. Once Python is installed, you can create a new virtual environment based on Python 3.11.2. To do this, run the following command in the project: `pyenv virtualenv 3.11.2 venv`.
 5. Now navigate to your Django project directory and activate the newly created virtual environment. To do this, run the following commands: `cd (Your Path)/django/project` and `source (your path)/django/project/venv/bin/activte`. This will activate your existing virtual environment.
+
+## API URLs
+- [./signup](http://localhost:8000/signup)
+- [./login](http://localhost:8000/login)
+- [./logout](http://localhost:8000/logout)
+- [./system/users](http://localhost:8000/system/users)
+- [./system/users/1](http://localhost:8000/system/users/1)
+- [./system/roles](http://localhost:8000/system/roles)
+- [./system/roles/1](http://localhost:8000/system/roles/1)
+- [./system/permissions](http://localhost:8000/system/permissions)
+- [./system/permissions/1](http://localhost:8000/system/permissions/1)
+- [./logistics/commodities](http://localhost:8000/logistics/commodities)
+- [./logistics/commodities/1](http://localhost:8000/logistics/commodities/1)
+- [./logistics/storage_conditions](http://localhost:8000/logistics/storage_conditions)
+- [./logistics/storage_conditions/1](http://localhost:8000/logistics/storage_conditions/1)
+- [./logistics/warehouses](http://localhost:8000/logistics/warehouses)
+- [./logistics/warehouses/1](http://localhost:8000/logistics/warehouses/1)
+- [./logistics/good_hazard_class](http://localhost:8000/logistics/good_hazard_class)
+- [./logistics/good_hazard_class/1](http://localhost:8000/logistics/good_hazard_class/1)
+
+## Roles and their permissions
+
+The command `python manage.py setup` configures the database, which creates all roles and their permissions.
+
+| Roles                     | Permissions                                                                                               |
+|---------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Root**                  | `*`                                                                                                       |
+| **Administrator**         | `system.*`, `logistic.*`, `disposition.*`                                                                 |
+| **Dispatcher**            | `disposition.*`, `logistic.commodity.update`, `logistic.warehouse.update`, `logistic.good_hazard_class.update`, `logistic.storage_condition.update` |
+| **Logistician**           | `logistic.commodity.*`, `logistic.*`                                                                      |
+| **Vehicle Manager**       | `disposition.vehicle.read`, `disposition.vehicle.update`                                                  |
+| **Road Transport Specialist** | `disposition.tour.read.assigned`, `disposition.tour.update.assigned`                                        |
+
+## Existing Permissions
+| Value                                | Description                                                                                      |
+|--------------------------------------|--------------------------------------------------------------------------------------------------|
+| `*`                                  | All rights                                                                                       |
+| `system.*`                           | All rights in user management                                                                    |
+| `system.role.*`                      | All CRUD rights for roles                                                                        |
+| `system.role.create`                 | Can create roles                                                                                 |
+| `system.role.read`                   | Can view all existing roles, including details                                                   |
+| `system.role.update`                 | Can update roles                                                                                 |
+| `system.role.delete`                 | Can delete roles                                                                                 |
+| `system.permission.*`                | All CRUD rights for permissions                                                                  |
+| `system.permission.create`           | Can create permissions                                                                           |
+| `system.permission.read`             | Can view all existing permissions, including details                                             |
+| `system.permission.update`           | Can update permissions                                                                           |
+| `system.permission.delete`           | Can delete permissions                                                                           |
+| `logistic.*`                         | All logistics-related rights                                                                     |
+| `logistic.commodity.*`               | All CRUD rights for commodities                                                                  |
+| `logistic.commodity.create`          | Can create commodities                                                                           |
+| `logistic.commodity.read`            | Can view all commodities, including details                                                      |
+| `logistic.commodity.update`          | Can update commodities                                                                           |
+| `logistic.commodity.delete`          | Can delete commodities                                                                           |
+| `logistic.warehouse.*`               | All CRUD rights for warehouses                                                                   |
+| `logistic.warehouse.create`          | Can create warehouses                                                                            |
+| `logistic.warehouse.read`            | Can view all warehouses, including details                                                       |
+| `logistic.warehouse.update`          | Can update warehouses                                                                            |
+| `logistic.warehouse.delete`          | Can delete warehouses                                                                            |
+| `logistic.good_hazard_class.*`       | All CRUD rights for good hazard classes                                                          |
+| `logistic.good_hazard_class.create`  | Can create good hazard classes                                                                   |
+| `logistic.good_hazard_class.read`    | Can view all good hazard classes, including details                                              |
+| `logistic.good_hazard_class.update`  | Can update good hazard classes                                                                   |
+| `logistic.good_hazard_class.delete`  | Can delete good hazard classes                                                                   |
+| `logistic.storage_condition.*`       | All CRUD rights for storage conditions                                                           |
+| `logistic.storage_condition.create`  | Can create storage conditions                                                                    |
+| `logistic.storage_condition.read`    | Can view all storage conditions, including details                                               |
+| `logistic.storage_condition.update`  | Can update storage conditions                                                                    |
+| `logistic.storage_condition.delete`  | Can delete storage conditions                                                                    |
+| `disposition.*`                      | All disposition-related rights                                                                   |
+| `disposition.tour.*`                 | All CRUD rights for tours                                                                        |
+| `disposition.tour.create`            | Can create tours                                                                                 |
+| `disposition.tour.read.other`        | Can view all tours, including details                                                            |
+| `disposition.tour.read.assigned`     | Can view only assigned tours, including details                                                  |
+| `disposition.tour.update.other`      | Can update all tours                                                                             |
+| `disposition.tour.update.assigned`   | Can update only assigned tours                                                                   |
+| `disposition.tour.delete`            | Can delete tours                                                                                 |
+| `disposition.vehicle.*`              | All CRUD rights for vehicles                                                                     |
+| `disposition.vehicle.create`         | Can create vehicles                                                                              |
+| `disposition.vehicle.read`           | Can view all vehicles, including details                                                         |
+| `disposition.vehicle.update`         | Can update vehicles                                                                              |
+| `disposition.vehicle.delete`         | Can delete vehicles                                                                              |
