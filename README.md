@@ -71,4 +71,4 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 - [./logistics/warehouses](http://localhost:8000/logistics/warehouses)
 - [./logistics/warehouses/1](http://localhost:8000/logistics/warehouses/1)
 - [./logistics/good_hazard_class](http://localhost:8000/logistics/good_hazard_class)
-- [./logistics/good_hazard_class/1](http://localhost:8000/logistics/good_hazard_class/1
+- [./logistics/good_hazard_class/1](http://localhost:8000/logistics/good_hazard_class/1)
