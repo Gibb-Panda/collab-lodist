@@ -1,6 +1,11 @@
 from django.urls import path
 
-from logistic.views import CommodityViewSet, StorageConditionViewSet, GoodHazardClassViewSet, WareHouseViewSet
+from logistic.views import (
+    CommodityViewSet,
+    GoodHazardClassViewSet,
+    StorageConditionViewSet,
+    WarehouseViewSet,
+)
 
 urlpatterns = [
     path(
@@ -40,15 +45,27 @@ urlpatterns = [
         name="commodity_api_detail",
     ),
     path(
-        "ware_houses",
-        WareHouseViewSet.as_view({"get": "list", "post": "create"}),
-        name="ware_houses_api",
+        "warehouses",
+        WarehouseViewSet.as_view({"get": "list", "post": "create"}),
+        name="warehouses_api",
     ),
     path(
-        "ware_houses/<int:pk>",
-        WareHouseViewSet.as_view(
+        "warehouses/<int:pk>",
+        WarehouseViewSet.as_view(
             {"get": "retrieve", "put": "update", "delete": "destroy"}
         ),
-        name="ware_houses_api_detail",
+        name="warehouses_api_detail",
+    ),
+    path(
+        "good_hazard_class",
+        GoodHazardClassViewSet.as_view({"get": "list", "post": "create"}),
+        name="users_api",
+    ),
+    path(
+        "good_hazard_class/<int:pk>",
+        GoodHazardClassViewSet.as_view(
+            {"get": "retrieve", "put": "update", "delete": "destroy"}
+        ),
+        name="good_hazard_class_api_detail",
     ),
 ]
