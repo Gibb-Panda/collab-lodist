@@ -74,6 +74,9 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 - [./logistics/good_hazard_class/1](http://localhost:8000/logistics/good_hazard_class/1)
 
 ## Roles and their permissions
+
+The command `python manage.py setup` configures the database, which creates all roles and their permissions.
+
 | Roles                     | Permissions                                                                                               |
 |---------------------------|-----------------------------------------------------------------------------------------------------------|
 | **Root**                  | `*`                                                                                                       |
