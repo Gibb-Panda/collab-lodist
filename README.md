@@ -113,7 +113,7 @@ The command `python manage.py setup` configures the database, which creates all 
 | **Root**                  | `*`                                                                                                       |
 | **Administrator**         | `system.*`, `logistic.*`, `disposition.*`                                                                 |
 | **Dispatcher**            | `disposition.*`, `logistic.commodity.update`, `logistic.warehouse.update`, `logistic.good_hazard_class.update`, `logistic.storage_condition.update` |
-| **Logistician**           | `logistic.commodity.*`, `logistic.*`                                                                      |
+| **Logistician**           | `logistic.*`                                                                      |
 | **Vehicle Manager**       | `disposition.vehicle.read`, `disposition.vehicle.update`                                                  |
 | **Road Transport Specialist** | `disposition.tour.read.assigned`, `disposition.tour.update.assigned`                                        |
 
