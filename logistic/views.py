@@ -63,9 +63,12 @@ class CommodityViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action == "create":
             permission_classes = [HasCreateCommodityPermission]
-        elif self.action == "retrieve" or self.action == "list":
+        elif self.action in ["retrieve", "list"]:
             permission_classes = [HasReadCommodityPermission]
-        elif self.action == "update" or self.action == "partial_update":
+        elif self.action in [
+            "update",
+            "partial_update",
+        ]:
             permission_classes = [HasUpdateCommodityPermission]
         elif self.action == "destroy":
             permission_classes = [HasDeleteCommodityPermission]

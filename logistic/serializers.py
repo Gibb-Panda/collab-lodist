@@ -29,7 +29,7 @@ class GoodHazardClassSerializer(serializers.ModelSerializer):
 
 class CommoditySerializer(serializers.ModelSerializer):
     storage_conditions = StorageConditionSerializer(many=True, read_only=True)
-    good_hazard_class = GoodHazardClassSerializer(many=True, read_only=True)
+    good_hazard_class = GoodHazardClassSerializer(read_only=True)
 
     class Meta:
         model = Commodity

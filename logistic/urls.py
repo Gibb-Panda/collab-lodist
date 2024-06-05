@@ -1,4 +1,5 @@
 from django.urls import path
+
 from logistic.views import (
     CommodityViewSet,
     GoodHazardClassViewSet,
@@ -39,7 +40,12 @@ urlpatterns = [
     path(
         "commodities/<int:pk>",
         CommodityViewSet.as_view(
-            {"get": "retrieve", "put": "update", "delete": "destroy"}
+            {
+                "get": "retrieve",
+                "put": "update",
+                "patch": "partial_update",
+                "delete": "destroy",
+            }
         ),
         name="commodity_api_detail",
     ),
