@@ -9,6 +9,18 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from backend.permissions import (
+    HasCreatePermissionPermission,
+    HasCreateRolePermission,
+    HasDeletePermissionPermission,
+    HasDeleteRolePermission,
+    HasReadPermissionPermission,
+    HasReadRolePermission,
+    HasSystemPermission,
+    HasUpdatePermissionPermission,
+    HasUpdateRolePermission,
+)
+
 from .models import CustomPermission, Role
 from .serializers import (
     CustomPermissionSerializer,
@@ -26,11 +38,39 @@ class CustomPermissionViewSet(viewsets.ModelViewSet):
     queryset = CustomPermission.objects.all()
     serializer_class = CustomPermissionSerializer
 
+    def get_permissions(self):
+        if self.action == "create":
+            permission_classes = [HasCreatePermissionPermission]
+        elif self.action == "retrieve" or self.action == "list":
+            permission_classes = [HasReadPermissionPermission]
+        elif self.action == "update" or self.action == "partial_update":
+            permission_classes = [HasUpdatePermissionPermission]
+        elif self.action == "destroy":
+            permission_classes = [HasDeletePermissionPermission]
+        else:
+            permission_classes = []
+
+        return [permission() for permission in permission_classes]
+
 
 class RoleViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
+
+    def get_permissions(self):
+        if self.action == "create":
+            permission_classes = [HasCreateRolePermission]
+        elif self.action == "retrieve" or self.action == "list":
+            permission_classes = [HasReadRolePermission]
+        elif self.action == "update" or self.action == "partial_update":
+            permission_classes = [HasUpdateRolePermission]
+        elif self.action == "destroy":
+            permission_classes = [HasDeleteRolePermission]
+        else:
+            permission_classes = []
+
+        return [permission() for permission in permission_classes]
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -47,8 +87,13 @@ class UserViewSet(viewsets.ModelViewSet):
         if self.action in ["signup", "login"]:
             permission_classes = [AllowAny]
         else:
-            permission_classes = [IsAuthenticated]
+            permission_classes = [IsAuthenticated, HasSystemPermission]
         return [permission() for permission in permission_classes]
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context["request"] = self.request
+        return context
 
     @action(detail=False, methods=["post"], permission_classes=[AllowAny])
     def signup(self, request):

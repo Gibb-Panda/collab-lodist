@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
+from backend.permissions import HasUpdateRolePermission
+
 from .models import ConfigUser, CustomPermission, Role
 
 User = get_user_model()
@@ -52,6 +54,13 @@ class UserSerializer(serializers.ModelSerializer):
             "is_active",
             "date_joined",
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        request = self.context.get("request")
+        if request and not HasUpdateRolePermission().has_permission(request, self):
+            self.fields["config"].fields.pop("role", None)
+            self.fields["config"].fields.pop("role_id", None)
 
     def update(self, instance, validated_data):
         config_data = validated_data.pop("config", None)
