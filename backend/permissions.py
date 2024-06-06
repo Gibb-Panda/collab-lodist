@@ -23,6 +23,81 @@ class HasPermission(BasePermission):
         ).exists()
 
 
+class SystemPermission(HasPermission):
+    base_permission = ""
+
+    def get_permissions(self, action):
+        if self.base_permission:
+            return [
+                f"system.{self.base_permission}.{action}",
+                "system.*",
+                f"system.{self.base_permission}.*",
+            ]
+        return []
+
+
+class HasSystemPermission(BasePermission):
+    def has_permission(self, request, view):
+        user = request.user
+
+        if not user.is_authenticated:
+            return False
+
+        # Check if the user has the system.* permission
+        if hasattr(user, "config") and user.config.role:
+            return user.config.role.permissions.filter(value="system.*").exists()
+
+        return False
+
+
+class HasCreateRolePermission(SystemPermission):
+    def __init__(self):
+        self.base_permission = "role"
+        self.required_permissions = self.get_permissions("create")
+
+
+class HasReadRolePermission(SystemPermission):
+    def __init__(self):
+        self.base_permission = "role"
+        self.required_permissions = self.get_permissions("read")
+
+
+class HasUpdateRolePermission(SystemPermission):
+    def __init__(self):
+        self.base_permission = "role"
+        self.required_permissions = self.get_permissions("update")
+
+
+class HasDeleteRolePermission(SystemPermission):
+    def __init__(self):
+        self.base_permission = "role"
+        self.required_permissions = self.get_permissions("delete")
+
+
+class HasCreatePermissionPermission(SystemPermission):
+    def __init__(self):
+        self.base_permission = "permission"
+        self.required_permissions = self.get_permissions("create")
+
+
+class HasReadPermissionPermission(SystemPermission):
+    def __init__(self):
+        self.base_permission = "permission"
+        self.required_permissions = self.get_permissions("read")
+
+
+class HasUpdatePermissionPermission(SystemPermission):
+    def __init__(self):
+        self.base_permission = "permission"
+        self.required_permissions = self.get_permissions("update")
+
+
+class HasDeletePermissionPermission(SystemPermission):
+    def __init__(self):
+        self.base_permission = "permission"
+        self.required_permissions = self.get_permissions("delete")
+
+
 class LogisticPermission(HasPermission):
     base_permission = ""
 

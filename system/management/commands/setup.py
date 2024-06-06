@@ -1,6 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 
-from system.models import CustomPermission, Role
+from system.models import ConfigUser, CustomPermission, Role
+
+User = get_user_model()
 
 
 class Command(BaseCommand):
@@ -176,6 +179,26 @@ class Command(BaseCommand):
                 f"▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ ✦ DATABASE ✦ ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇"
             )
         )
+        self.stdout.write(self.style.SQL_FIELD(f""))
+
+        # Create users and assign roles for setup
+        users = [("root", "Root"), ("admin", "Administrator")]
+        for username, role_name in users:
+            user, created = User.objects.get_or_create(username=username)
+            if created:
+                user.set_password(username)
+                user.is_staff = True
+                user.is_superuser = username == "root"
+                user.save()
+                self.stdout.write(
+                    self.style.WARNING(
+                        f"User '{username}' created and assigned to '{role_name}' role. (WARNING: THE PASSWORD MUST BE CHANGED, IT'S SAME AS USERNAME. This is only for setup purposes.)"
+                    )
+                )
+
+            role = Role.objects.get(name=role_name)
+            ConfigUser.objects.get_or_create(user=user, role=role)
+
         self.stdout.write(self.style.SQL_FIELD(f""))
 
         self.stdout.write(
