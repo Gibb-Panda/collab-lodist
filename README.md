@@ -16,6 +16,7 @@ This platform has been developed to enable comprehensive and efficient managemen
             - [Using SSH](#using-ssh)
             - [Using HTTPS](#using-https)
         - [Pyenv](#pyenv)
+        - [Note on Initial Setup](#note-on-initial-setup)
 4. [API URLs](#api-urls)
 5. [Roles and Their Permissions](#roles-and-their-permissions)
 6. [Existing Permissions](#existing-permissions)
