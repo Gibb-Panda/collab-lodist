@@ -84,6 +84,8 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
    - `python manage.py migrate` to apply database migrations.
    - `python manage.py runserver` to start the development server.
 
+##### Note on Initial Setup
+When setting up the project for the first time and running `migrate` or the first time, two users are created: "admin" and "root". The password for these users is the same as their username. This is done because every time migrations are applied, a setup Django command is executed (`python manage.py setup`). This command checks if the two users already exist and creates them if they do not.
 
 ## API URLs
 - [./signup](http://localhost:8000/signup)
