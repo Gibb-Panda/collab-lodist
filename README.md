@@ -78,7 +78,7 @@ djlint is a tool for analyzing and cleaning HTML and template code, specifically
 1. Install Pyenv via Homebrew by running the following command in your terminal: `brew install pyenv`.
 2. Once Pyenv is installed, you can install the desired version of Python. For Django 4.1.7, we recommend using Python 3.11.2. To install this version, run the following command: `pyenv install 3.11.2`. (Warning: This installs Python globally, not in a virtual environment, which is not recommended).
 3. To install virtualenv, you can use the following command if you are using macOS and Homebrew: `brew install pyenv-virtualenv`. This will install pyenv-virtualenv, which is a plugin for pyenv that provides support for creating and managing virtual environments.
-4. Once Python is installed, you can create a new virtual environment based on Python 3.11.2. To do this, run the following command in the project: `python -m venv venv`.
+4. Once Python is installed, you can create a new virtual environment. To do this, run the following command in the project: `python -m venv venv`.
 5. Now navigate to your Django project directory and activate the newly created virtual environment. To do this, run the following commands: `cd (your-path)/collab-lodist-backend` and `source (your-path)/collab-lodist-backend/venv/bin/activate`. This will activate your existing virtual environment.
 6. With the virtual environment activated, you can now install the project dependencies. Run the following command to install the required packages from the `requirements.txt` file: `pip install -r requirements.txt`.
 7. Ensure all dependencies are installed correctly and the project is set up properly by running the following commands:
